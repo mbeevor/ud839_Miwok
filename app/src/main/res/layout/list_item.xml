@@ -13,7 +13,7 @@
         android:padding="16dp"/>
 
     <TextView
-        android:id="@+id/mother_text_view"
+        android:id="@+id/default_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="one"
