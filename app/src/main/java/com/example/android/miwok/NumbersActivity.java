@@ -55,7 +55,7 @@ public class NumbersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
-
+        audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
         final ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("one", "lutti", R.drawable.number_one, R.raw.number_one));
 
@@ -130,5 +130,7 @@ public class NumbersActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         releaseMediaPlayer();
+        //abandonAudioFocus when media player is released
+        audioManager.abandonAudioFocus(focusChangeListener);
     }
 }
