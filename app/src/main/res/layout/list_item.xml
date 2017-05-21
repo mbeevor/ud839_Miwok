@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/list_item_height"
-    android:background="@color/tan_background"
-    android:orientation="vertical">
+    android:background="@color/tan_background" >
 
     <ImageView
         android:id="@+id/image"
@@ -45,5 +44,13 @@
             tools:text="one" />
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_play_arrow_white_24dp"/>
 
 </RelativeLayout>

@@ -136,6 +136,6 @@ public class NumbersActivity extends AppCompatActivity {
         super.onStop();
         releaseMediaPlayer();
         //abandonAudioFocus when media player is released
-        audioManager.abandonAudioFocus(focusChangeListener);
+        audioManager.abandonAudioFocus(audioFocusChangeListener);
     }
 }
