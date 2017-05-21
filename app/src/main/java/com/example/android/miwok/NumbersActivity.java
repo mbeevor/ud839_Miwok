@@ -57,8 +57,6 @@ public class NumbersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-
 
         final ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("one", "lutti", R.drawable.number_one, R.raw.number_one));
@@ -130,6 +128,8 @@ public class NumbersActivity extends AppCompatActivity {
             // setting the media player to null is an easy way to tell that the media player
             // is not configured to play an audio file at the moment.
             mediaPlayer = null;
+            //abandonAudioFocus when media player is released
+            audioManager.abandonAudioFocus(audioFocusChangeListener);
         }
     }
 
@@ -137,7 +137,5 @@ public class NumbersActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         releaseMediaPlayer();
-        //abandonAudioFocus when media player is released
-        audioManager.abandonAudioFocus(audioFocusChangeListener);
     }
 }

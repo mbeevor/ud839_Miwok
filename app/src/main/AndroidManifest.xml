@@ -31,41 +31,24 @@
         </activity>
         <activity
             android:name=".PhrasesActivity"
-            android:parentActivityName=".MainActivity"
-        <!-- Parent activity meta-data to support 4.0 and lower -->
-               
-        <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".MainActivity" />
-        android:label="@string/phrases_name" />
+            android:label="@string/phrases_name"
+            android:parentActivityName=".MainActivity" >
+        </activity>
         <activity
             android:name=".NumbersActivity"
-            android:parentActivityName=".MainActivity"
-        <!-- Parent activity meta-data to support 4.0 and lower -->
-               
-        <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".MainActivity" />
-        android:label="@string/numbers_name"/>
+            android:label="@string/numbers_name"
+            android:parentActivityName=".MainActivity">
+        </activity>
         <activity
             android:name=".FamilyActivity"
-            android:parentActivityName=".MainActivity"
-        <!-- Parent activity meta-data to support 4.0 and lower -->
-               
-        <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".MainActivity" />
-        android:label="@string/family_name"/>
+            android:label="@string/family_name"
+            android:parentActivityName=".MainActivity">
+        </activity>
         <activity
             android:name=".ColorsActivity"
-            android:parentActivityName=".MainActivity"
-        <!-- Parent activity meta-data to support 4.0 and lower -->
-               
-        <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".MainActivity" />
-        android:label="@string/colors_name">
-    </activity>
-</application>
+            android:label="@string/colors_name"
+            android:parentActivityName=".MainActivity">
+        </activity>
+    </application>
 
-    </manifest>
+</manifest>
