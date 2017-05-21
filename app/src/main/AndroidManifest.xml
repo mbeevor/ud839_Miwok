@@ -29,15 +29,43 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PhrasesActivity"
-            android:label="@string/phrases_name" />
-        <activity android:name=".NumbersActivity"
-            android:label="@string/numbers_name"/>
-        <activity android:name=".FamilyActivity"
-            android:label="@string/family_name"/>
-        <activity android:name=".ColorsActivity"
-            android:label="@string/colors_name">
-        </activity>
-    </application>
+        <activity
+            android:name=".PhrasesActivity"
+            android:parentActivityName=".MainActivity"
+        <!-- Parent activity meta-data to support 4.0 and lower -->
+               
+        <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".MainActivity" />
+        android:label="@string/phrases_name" />
+        <activity
+            android:name=".NumbersActivity"
+            android:parentActivityName=".MainActivity"
+        <!-- Parent activity meta-data to support 4.0 and lower -->
+               
+        <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".MainActivity" />
+        android:label="@string/numbers_name"/>
+        <activity
+            android:name=".FamilyActivity"
+            android:parentActivityName=".MainActivity"
+        <!-- Parent activity meta-data to support 4.0 and lower -->
+               
+        <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".MainActivity" />
+        android:label="@string/family_name"/>
+        <activity
+            android:name=".ColorsActivity"
+            android:parentActivityName=".MainActivity"
+        <!-- Parent activity meta-data to support 4.0 and lower -->
+               
+        <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".MainActivity" />
+        android:label="@string/colors_name">
+    </activity>
+</application>
 
-</manifest>
+    </manifest>
