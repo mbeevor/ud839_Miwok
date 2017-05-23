@@ -1,17 +1,16 @@
 package com.example.android.miwok;
 
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-
 /**
- * A simple {@link Fragment} subclass.
+ * Created by Matthew on 23/05/2017.
  */
-public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    public SimpleFragmentPagerAdapter(FragmentManager fm) {
+public class CategoryAdapter extends FragmentPagerAdapter {
+
+    public CategoryAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -19,7 +18,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         if (position == 0) {
             return new ColorsFragment();
-        } else if (position == 1){
+        } else if (position == 1) {
             return new FamilyFragment();
         } else if (position == 2) {
             return new NumbersFragment();
@@ -33,3 +32,4 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
         return 4;
     }
 }
+
