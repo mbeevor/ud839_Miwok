@@ -4,14 +4,17 @@ import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class ColorsActivity extends AppCompatActivity {
+
+public class ColorsFragment extends Fragment {
 
     private MediaPlayer mediaPlayer;
     private AudioManager audioManager;
@@ -54,9 +57,13 @@ public class ColorsActivity extends AppCompatActivity {
             };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.word_list);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.word_list, container, false);
+
+// Initiate AudioManager
+        audioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
+
 
         final ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("red", "weṭeṭṭi", R.drawable.color_red, R.raw.color_red));
@@ -75,9 +82,9 @@ public class ColorsActivity extends AppCompatActivity {
 
         words.add(new Word("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow, R.raw.color_mustard_yellow));
 
-        WordAdapter adapter = new WordAdapter(this, words, R.color.category_colors);
+        WordAdapter adapter = new WordAdapter(getActivity(), words, R.color.category_colors);
 
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         listView.setAdapter(adapter);
 
@@ -87,15 +94,13 @@ public class ColorsActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 releaseMediaPlayer();
                 Word word = words.get(position);
-                // Initiate AudioManager
-                audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
                 // Request AudioFocus
                 int result = audioManager.requestAudioFocus(audioFocusChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
                 // Request for AudioFocus is successful
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
-                    mediaPlayer = MediaPlayer.create(ColorsActivity.this, word.getAudioResourceId());
+                    mediaPlayer = MediaPlayer.create(getActivity(), word.getAudioResourceId());
                     mediaPlayer.start();
                     mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
@@ -107,7 +112,9 @@ public class ColorsActivity extends AppCompatActivity {
             }
         });
 
+        return rootView;
     }
+
     /**
      * Clean up the media player by releasing its resources.
      */
@@ -129,8 +136,13 @@ public class ColorsActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onStop() {
+    public void onStop() {
         super.onStop();
         releaseMediaPlayer();
     }
+
+    public ColorsFragment() {
+        // Required empty public constructor
+    }
+
 }
